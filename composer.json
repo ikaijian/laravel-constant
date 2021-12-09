@@ -1,0 +1,17 @@
+{
+    "name": "ikaijian\/laravel-constant",
+    "description": "'??,???,constant,enum,???,API????,???????'",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ikaijian",
+            "email": "ikaijian@163.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Ikaijian\\LaravelConstant\\": "src"
+        }
+    }
+}
