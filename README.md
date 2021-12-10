@@ -1,6 +1,6 @@
 <h1 align="center"> laravel-constant </h1>
 
-<p align="center"> laravel,枚举,错误码,constant,enum,枚举类,API统一响应，统一管理错误码</p>
+<p align="center"> 枚举,错误码,constant,enum,统一管理错误码</p>
 
 ## 安装
 ~~~
