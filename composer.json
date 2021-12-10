@@ -1,6 +1,6 @@
 {
     "name": "ikaijian\/laravel-constant",
-    "description": "枚举,错误码,constant,enum,枚举类,API统一响应，统一管理错误码",
+    "description": "constant,enum,枚举类，错误码",
     "license": "MIT",
     "authors": [
         {
