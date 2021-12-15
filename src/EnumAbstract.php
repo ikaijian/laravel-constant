@@ -15,16 +15,22 @@ use Ikaijian\LaravelConstant\Exception\EnumException;
 use Ikaijian\LaravelConstant\Support\LaravelStr;
 use Ikaijian\LaravelConstant\Support\SingletonTrait;
 
+/**
+ * Class EnumAbstract
+ * @package Ikaijian\LaravelConstant
+ * @method getMessage($code)
+ * @method getDesc($code)
+ */
 abstract class EnumAbstract
 {
     use SingletonTrait;
 
     /** @var AdapterInterface */
-    public $_adapter;
+    public static $enumAdapter;
 
     private function __construct()
     {
-        $this->_adapter = new ReflectionAdapter(static::class);
+       self::$enumAdapter = new ReflectionAdapter(static::class);
     }
 
     /**
@@ -57,7 +63,7 @@ abstract class EnumAbstract
         // 获取反射变量
         $ref = new \ReflectionClass(static::class);
         $properties = $ref->getDefaultProperties();
-        $arr = $this->_adapter->getAnnotationsByName($name, $properties);
+        $arr = self::$enumAdapter->getAnnotationsByName($name, $properties);
         //兼容PHP本版
         if (version_compare(PHP_VERSION, 7, '<')) {
             return isset($arr[$code]) ? $arr[$code] : '';
@@ -68,7 +74,7 @@ abstract class EnumAbstract
     }
 
     /**
-     *
+     * 静态调用
      *
      * @param $method
      * @param $arguments
@@ -93,8 +99,6 @@ abstract class EnumAbstract
     {
         $ref = new \ReflectionClass(static::class);
         $properties = $ref->getDefaultProperties();
-        $_adapter = new ReflectionAdapter(static::class);
-
-        return $_adapter->getAnnotationsByName('Message', $properties);
+        return self::$enumAdapter->getAnnotationsByName('Message', $properties);
     }
 }
